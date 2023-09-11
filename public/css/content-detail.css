@@ -1,0 +1,69 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css");
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+body{
+    background-color: black;
+    color: white;
+}
+
+p{
+    font-size: 1.25em;
+}
+
+.all-content-page{
+    width: 100%;
+    display: flex;
+    gap: 50px;
+}
+
+.content-field{
+    width: 80%;
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.content-field img{
+    width: 550px;
+    height: 300px;
+}
+
+.suggested-content{
+    width: 20%;
+    height: 400px;
+}
+
+.suggested-content-card {
+    width: 100%;
+    height: 220px;
+    display: flex;
+    flex-direction: column;
+}
+.suggested-content-card .suggested-content-card-image{
+    width: 100%;
+    height: 50%;
+}
+
+.suggested-content-card .suggested-content-card-image img{
+    width: 100%;
+    height: 100%;
+}
+.suggested-content-card .suggested-content-card-title{
+    width: 100%;
+    height: 50%;
+    padding-top: 10px;
+}
+
+@media only screen and (max-width: 900px) {
+    .all-content-page{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+    }
+  }

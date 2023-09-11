@@ -1,0 +1,19 @@
+.add-post-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.add-post-container form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+form input {
+    width: 300px;
+    height: 30px;
+    color: black;
+}

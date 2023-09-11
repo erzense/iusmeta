@@ -1,0 +1,123 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: 0;
+}
+.content-filters{
+    width: 100%;
+}
+
+form{
+    color: white;
+}
+
+form select{
+    height: 30px;
+    width: 90px;
+    background-color: gray;
+    color: white;
+}
+form button{
+    height: 30px;
+    width: 90px;
+    background-color: gray;
+    color: white;
+}
+
+.content-area{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    align-items: center;
+    gap: 20px;
+}
+
+.content-area .content-card{
+    width: 260px;
+    height: 310px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid white;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.content-area .content-card .image{
+    width: 100%;
+    height: 50%;
+}
+
+.content-area .content-card .image img{
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+}
+
+.content-header {
+    width: 100%;
+    height: 15%;
+    display: flex;
+    align-items: center;
+}
+
+.content-author{
+    width: 100%;
+    height: 15%;
+    align-items: center;
+}
+
+.content-categories {
+    width: 100%;
+    height: 10%;
+    align-items: center;
+}
+
+.content-button{
+    width: 100%;
+    height: 10%;
+    align-items: center;
+}
+
+.content-area .content-card .content-author{
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding-left: 10px;
+}
+
+.content-area .content-card .content-author .content-title{
+    font-size:20px;
+    padding-left: 10px;
+}
+
+.content-area .content-author-p{
+    font-size: 15px;
+    
+}
+
+.content-categories-p {
+    padding-left: 10px;
+    font-size: 14px;
+}
+
+.content-header{
+    padding-left: 10px;
+}
+
+.content-button{
+    padding-left: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-bottom: 5px;
+}
+
+.content-detail-button {
+    width: 50%;
+    height: 25px;
+    background-color: rgb(52, 53, 53);
+}

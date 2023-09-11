@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hakkımızda</title>
+    <link rel="stylesheet" href="../css/components/navbar.css" />
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="../css/about.css" />
+  </head>
+  <body>
+    <%- include('partials/navbar') %>
+    <div class="container">
+      <div class="about-text">
+        <p>
+          Ius Meta, bilişim ve bilişim hukuku alanında gelişmeleri derleyip en
+          faydalı olacak şekilde sizlere sunmak amacıyla 2022 yılının Kasım
+          ayında Eray Ersan ve İsmet Akbulut tarafından kurulmuştur.
+        </p>
+      </div>
+      <div class="admins">
+        <% admins.forEach(admin => { %>
+
+        <div class="admin-card">
+          <div class="admin-image">
+            <img src="images/<%= admin.image %>" alt="" />
+          </div>
+          <div class="admin-name">
+            <h3><%= admin.name %> - <%= admin.position %></h3>
+          </div>
+          <div class="admin-site-information">
+            <h3>0 Post</h3>
+          </div>
+          <div class="admin-contact-links">
+            <a href="<%= admin.linkedin %>"><i class="bi bi-linkedin"></i></a>
+            <a href="<%= admin.instagram %>"><i class="bi bi-instagram"></i></a>
+          </div>
+          <div class="admin-detail-link">
+            <a href="/about/<%= admin._id %> "><div class="detail-button">Özgeçmiş</div></a>
+            <a href=""><div class="detail-button">Yazıları</div></a>
+          </div>
+        </div>
+        <% }) %>
+      </div>
+
+      <div class="activities">
+        <h2>NELER YAPIYORUZ?</h2>
+        <div class="activities-containers">
+          <div class="activities-container">
+            <div class="container-icon">
+              <i class="bi bi-body-text"></i>
+            </div>
+            <div class="activities-container-text">
+              <p class="activities-text">
+                Ius Meta olarak sektördeki en güncel konular hakkında
+                bilgilendirme yazıları yazarak gündemi daha kolay takip etmenizi
+                ve bu konular hakkında farkındalık kazandırmayı hedefliyoruz.
+              </p>
+            </div>
+          </div>
+          <div class="activities-container">
+            <div class="container-icon">
+              <i class="bi bi-mic"></i>
+            </div>
+            <div class="activities-container-text">
+              <p class="activities-text">
+                Ius Meta olarak sektördeki en güncel konular hakkında alanında
+                uzman kişiler ile podcast çekimleri yaparak sizleri hukuk ve
+                teknolijinin gelişim alanlarında bilgilendirmeyi hedefliyoruz
+              </p>
+            </div>
+          </div>
+          <div class="activities-container">
+            <div class="container-icon">
+              <i class="bi bi-newspaper"></i>
+            </div>
+            <div class="activities-container-text">
+              <p class="activities-text">
+                Ius Meta olarak Türkiye'den ve Dünyadan en güncel haberleri
+                sizlere sunuyoruz.
+              </p>
+            </div>
+          </div>
+          <div class="activities-container">
+            <div class="container-icon">
+              <i class="bi bi-menu-up"></i>
+            </div>
+            <div class="activities-container-text">
+              <p class="activities-text">
+                Ius Meta olarak alanında uzman kişiler ve kurumlarla ilgili
+                alanlarda soru-cevap şeklinde ilerleyen bir içerik hazırlayarak
+                sizi bilgiye en pratik şekilde ulaştırmayı hedefliyoruz
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <%- include('partials/footer') %>
+    </div>
+  </body>
+</html>
