@@ -65,5 +65,14 @@ p{
         display: flex;
         flex-direction: column;
         gap: 50px;
+        margin-bottom: 50px;
+    }
+    .content-field img{
+        width: 275px;
+        height: 150px;
+    }
+
+    .content-field{
+        width: 100%;
     }
   }
