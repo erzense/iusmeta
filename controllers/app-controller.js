@@ -140,12 +140,20 @@ const postProtectedPage = async (req,res) => {
 }
 
 const getAdminDashboard = async (req,res) => {
-  const admin = req.session.admin
-  const contents = await Content.find({})
+  try {
+    const admin = req.session.admin
+    const {name} = admin
+    const filter = name
+    let queryObject = {author:filter};
+    const result = Content.find(queryObject);
+    const contents = await result;
+    console.log(contents)
+    res.status(201).render("dashboard", { contents,admin });
+  } catch (error) {
+    console.log(error);
+  }
   
-  console.log(admin)
   
-  res.status(201).render('dashboard', {admin})
 }
 
 module.exports = {

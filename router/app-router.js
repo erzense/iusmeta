@@ -15,8 +15,8 @@ router.route("/login").get(getlogin)
 router.route("/login").post(postlogin)
 
 router.route('/postadmin').post(createAdmin)
-router.route('/protected').get(isAuth,protectedPage)
-router.route('/protected').post(isAuth,postProtectedPage)
+router.route('/dashboard/add-post').get(isAuth,protectedPage)
+router.route('/dashboard/add-post').post(isAuth,postProtectedPage)
 
 router.route('/dashboard').get(isAuth,getAdminDashboard)
 
