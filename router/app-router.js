@@ -7,6 +7,9 @@ getAdminDashboard, deletePostFromAdminDashboard,
 } = require("../controllers/app-controller")
 
 router.route("/").get(getIndex)
+router.get("/ads.txt").get(function(req,res) {
+    res.send("../")
+})
 
 router.route("/about").get(getAbout)
 router.route("/about/:id").get(getAdmin)
