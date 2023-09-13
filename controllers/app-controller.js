@@ -139,6 +139,15 @@ const postProtectedPage = async (req,res) => {
   
 }
 
+const getAdminDashboard = async (req,res) => {
+  const admin = req.session.admin
+  const contents = await Content.find({})
+  
+  console.log(admin)
+  
+  res.status(201).render('dashboard', {admin})
+}
+
 module.exports = {
   getIndex,
   getAbout,
@@ -151,4 +160,5 @@ module.exports = {
   postProtectedPage,
   protectedPage,
   postlogin,
+  getAdminDashboard,
 };

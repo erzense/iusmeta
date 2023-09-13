@@ -11,8 +11,23 @@
     <title>Add Post</title>
   </head>
   <body>
-    <%- include('partials/navbar') %>
-    <br><br><br>
+    <nav>
+      <input id="nav-toggle" type="checkbox">
+      <div class="logo">
+          <a href="/"><img src="../images/logo.png" alt=""></a>
+      </div>
+      <ul class="links">
+          <li>Admin <%= admin.name %></li>
+          <li><a href="/">Yazılarım</a></li>
+          <li><a href="/protected">Post Ekle</a></li>
+      </ul>
+      <label for="nav-toggle" class="icon-burger">
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+      </label>
+  </nav><br /><br /><br /><br /><br />
+
     <div class="add-post-container">
       <form action="/protected" method="POST">
         <label for="author">Yazar</label>
