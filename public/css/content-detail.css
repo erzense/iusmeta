@@ -59,6 +59,10 @@ p{
     padding-top: 10px;
 }
 
+.content-text{
+    font-size: 15px;
+}
+
 @media only screen and (max-width: 900px) {
     .all-content-page{
         width: 100%;

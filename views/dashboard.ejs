@@ -1,33 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../css/components/navbar.css" />
     <link rel="stylesheet" href="../css/main.css" />
     <link rel="stylesheet" href="../css/about.css" />
     <title>Admin Dashboard</title>
-</head>
-<body>
+  </head>
+  <body>
     <nav>
-        <input id="nav-toggle" type="checkbox">
-        <div class="logo">
-            <a href="/"><img src="../images/logo.png" alt=""></a>
-        </div>
-        <ul class="links">
-            <li>Admin <%= admin.name %></li>
-            <li><a href="/">Yazılarım</a></li>
-            <li><a href="/dashboard/add-post">Post Ekle</a></li>
-        </ul>
-        <label for="nav-toggle" class="icon-burger">
-            <div class="line"></div>
-            <div class="line"></div>
-            <div class="line"></div>
-        </label>
-    </nav><br /><br /><br /><br /><br />
+      <input id="nav-toggle" type="checkbox" />
+      <div class="logo">
+        <a href="/"><img src="../images/logo.png" alt="" /></a>
+      </div>
+      <ul class="links">
+        <li>Admin <%= admin.name %></li>
+        <li><a href="/dashboard">Yazılarım</a></li>
+        <li><a href="/dashboard/add-post">Post Ekle</a></li>
+      </ul>
+      <label for="nav-toggle" class="icon-burger">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+      </label>
+    </nav>
+    <br /><br /><br /><br /><br />
 
-    <% contents.forEach(content => { %>
-     <h3><%= content.title %></h3>
-    <% }) %>
-</body>
+    <div class="container">
+      <h1>Yazılarınız</h1>
+      <ul>
+        <% contents.forEach(content => { %>
+        <li style="background-color: rgb(17, 167, 187); margin-bottom: 5px">
+          <a target="_blank" href="/contents/<%= content._id %>"
+            ><%= content.title %></a
+          ><a href="/dashboard/delete/<%= content._id %>"><i style="margin-left: 10px; color: red;" class="bi bi-trash"></i></a
+          ><a href=""><i style="margin-left: 10px; color: black;" class="bi bi-pencil"></i></a>
+        </li>
+        <% }) %>
+      </ul>
+    </div>
+  </body>
 </html>

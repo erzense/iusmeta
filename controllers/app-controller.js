@@ -152,8 +152,11 @@ const getAdminDashboard = async (req,res) => {
   } catch (error) {
     console.log(error);
   }
-  
-  
+}
+
+const deletePostFromAdminDashboard = async(req,res) => {
+  await Content.deleteOne({_id:req.params.id}) 
+  res.redirect('/dashboard')
 }
 
 module.exports = {
@@ -169,4 +172,5 @@ module.exports = {
   protectedPage,
   postlogin,
   getAdminDashboard,
+  deletePostFromAdminDashboard,
 };
