@@ -1,47 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ius Meta</title>
     <link rel="stylesheet" href="../css/components/navbar.css" />
     <link rel="stylesheet" href="../css/main.css" />
     <link rel="stylesheet" href="../css/about.css" />
 
     <style>
-        .admin-detail{
-            width: 100%;
-            padding: 100px;
-            color: white;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            gap: 20px;
-        }
+      .admin-detail {
+        width: 100%;
+        padding: 100px;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+      }
 
-        img{
-            width: 160px;
-            height: 160px;
-            border-radius: 50%;
-        }
+      img {
+        width: 160px;
+        height: 160px;
+        border-radius: 50%;
+      }
 
-        @media only screen and (max-width: 600px) {
-    .admin-detail {
-   padding: 10px;
-  }
-}
+      .adminPosts {
+        padding: 0px 100px;
+        width: 100%;
+      }
+
+      @media only screen and (max-width: 600px) {
+        .admin-detail {
+          padding: 10px;
+        }
+      }
     </style>
-</head>
-<body>
-   <%- include('partials/navbar') %>
-   <div class="container">
-    <div class="admin-detail">
+  </head>
+  <body>
+    <%- include('partials/navbar') %>
+    <div class="container">
+      <div class="admin-detail">
         <div class="admin-image">
-            <img src="../images/<%= admin.image %>" alt="">
+          <img src="../images/<%= admin.image %>" alt="" />
         </div>
         <p><%= admin.cv %></p>
+      </div>
+
+      <div class="adminPosts">
+        <% contents.forEach(content => { %>
+        <p>
+          <a href="/contents/<%= content._id %>" target="_blank"
+            ><%= content.title %></a
+          >
+        </p>
+        <br />
+        <% }) %>
+      </div>
     </div>
-   </div>
-</body>
+  </body>
 </html>

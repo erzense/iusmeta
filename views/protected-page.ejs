@@ -12,21 +12,22 @@
   </head>
   <body>
     <nav>
-      <input id="nav-toggle" type="checkbox">
+      <input id="nav-toggle" type="checkbox" />
       <div class="logo">
-          <a href="/"><img src="../images/logo.png" alt=""></a>
+        <a href="/"><img src="../images/logo.png" alt="" /></a>
       </div>
       <ul class="links">
-          <li>Admin <%= admin.name %></li>
-          <li><a href="/dashboard">Yazılarım</a></li>
-          <li><a href="/protected">Post Ekle</a></li>
+        <li>Admin <%= admin.name %></li>
+        <li><a href="/dashboard">Yazılarım</a></li>
+        <li><a href="/protected">Post Ekle</a></li>
       </ul>
       <label for="nav-toggle" class="icon-burger">
-          <div class="line"></div>
-          <div class="line"></div>
-          <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
       </label>
-  </nav><br /><br /><br /><br /><br />
+    </nav>
+    <br /><br /><br /><br /><br />
 
     <div class="add-post-container">
       <form action="/dashboard/add-post" method="POST">
@@ -38,10 +39,10 @@
         <input type="text" name="post_image" id="" />
         <label for="post_text">Metin</label>
         <select name="kategori" id="kategori">
-            <option value="Röportaj">Röportaj</option>
-            <option value="Makale">Makale</option>
-            <option value="Podcast">Podcast</option>
-            <option value="Haber">Haber</option>
+          <option value="Röportaj">Röportaj</option>
+          <option value="Makale">Makale</option>
+          <option value="Podcast">Podcast</option>
+          <option value="Haber">Haber</option>
         </select>
         <textarea id="post-text" name="editor1" rows="10" cols="50"></textarea>
         <button type="submit">Yayınla</button>
@@ -49,13 +50,7 @@
     </div>
 
     <script>
-        CKEDITOR.replace( 'editor1' );
+      CKEDITOR.replace("editor1");
     </script>
   </body>
-
-   
-    
-    
-
-
 </html>

@@ -5,7 +5,11 @@ const ContentSchema = new mongoose.Schema({
   image: String,
   content: String,
   author: String,
-  categories: String
+  categories: String,
+  createdAt: {
+    type: Date,
+    default: Date.now(),
+  },
 });
 
 module.exports = mongoose.model("Content", ContentSchema);

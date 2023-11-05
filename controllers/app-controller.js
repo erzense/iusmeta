@@ -7,10 +7,10 @@ const bcrypt = require("bcryptjs");
 
 const getlogin = async (req, res) => {
   try {
-    if (!req.session.isAuth){
+    if (!req.session.isAuth) {
       res.render("login");
-    }else{
-      res.redirect("/")
+    } else {
+      res.redirect("/");
     }
   } catch (error) {
     console.log(error);
@@ -24,12 +24,11 @@ const postlogin = async (req, res) => {
   try {
     if (admin) {
       if (await admin.correctPassword(candidatePassword, admin.password)) {
-        req.session.admin = admin
+        req.session.admin = admin;
         req.session.isAuth = true;
-        return req.session.save(function(err){
-          
+        return req.session.save(function (err) {
           res.redirect("/");
-        })
+        });
       } else {
         res.redirect("/login");
       }
@@ -59,16 +58,21 @@ const getAbout = async (req, res) => {
 
 const getAdmin = async (req, res) => {
   const admins = await Admins.find({});
+
   try {
     const admin = admins.find((a) => a._id == req.params.id);
-    res.render("adminpage", { admin });
+    const contents = await Content.find({ author: admin.name });
+    contents.forEach((content) => {
+      console.log(content.title);
+    });
+    res.render("adminpage", { admin, contents });
   } catch (error) {}
 };
 
 const getContents = async (req, res) => {
   try {
     const queryObject = {};
-    const result = Content.find(queryObject);
+    const result = Content.find(queryObject).sort("-createdAt");
     const contents = await result;
 
     res.status(200).render("contents", { contents });
@@ -106,6 +110,7 @@ const filterContents = async (req, res) => {
 const createAdmin = async (req, res) => {
   try {
     const newAdmin = await siteAdmins.create({
+      name: req.body.name,
       email: req.body.email,
       password: req.body.password,
     });
@@ -115,49 +120,47 @@ const createAdmin = async (req, res) => {
   }
 };
 
-const protectedPage = async (req,res) => {
-  const admin = req.session.admin
-  res.render('protected-page',{admin})
-}
+const protectedPage = async (req, res) => {
+  const admin = req.session.admin;
+  res.render("protected-page", { admin });
+};
 
-const postProtectedPage = async (req,res) => {
-  try{   
+const postProtectedPage = async (req, res) => {
+  try {
     const content = await Content.create({
       title: req.body.post_title,
       image: req.body.post_image,
       content: req.body.editor1,
       author: req.body.author,
-      categories: req.body.kategori
-
+      categories: req.body.kategori,
     });
-    
-   console.log(content)
-   res.status(201).redirect('/')
-  }catch(error){
-    console.log(error)
-  }
-  
-}
 
-const getAdminDashboard = async (req,res) => {
-  try {
-    const admin = req.session.admin
-    const {name} = admin
-    const filter = name
-    let queryObject = {author:filter};
-    const result = Content.find(queryObject);
-    const contents = await result;
-    console.log(contents)
-    res.status(201).render("dashboard", { contents,admin });
+    console.log(content);
+    res.status(201).redirect("/");
   } catch (error) {
     console.log(error);
   }
-}
+};
 
-const deletePostFromAdminDashboard = async(req,res) => {
-  await Content.deleteOne({_id:req.params.id}) 
-  res.redirect('/dashboard')
-}
+const getAdminDashboard = async (req, res) => {
+  try {
+    const admin = req.session.admin;
+    const { name } = admin;
+    const filter = name;
+    let queryObject = { author: filter };
+    const result = Content.find(queryObject);
+    const contents = await result;
+    console.log(contents);
+    res.status(201).render("dashboard", { contents, admin });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const deletePostFromAdminDashboard = async (req, res) => {
+  await Content.deleteOne({ _id: req.params.id });
+  res.redirect("/dashboard");
+};
 
 module.exports = {
   getIndex,
