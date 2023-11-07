@@ -29,16 +29,15 @@
             <h3><%= admin.name %></h3>
             <h3><%= admin.position %></h3>
           </div>
-          <div class="admin-site-information">
-            <h3>0 Post</h3>
-          </div>
+          <div class="admin-site-information"></div>
           <div class="admin-contact-links">
             <a href="<%= admin.linkedin %>"><i class="bi bi-linkedin"></i></a>
             <a href="<%= admin.instagram %>"><i class="bi bi-instagram"></i></a>
           </div>
           <div class="admin-detail-link">
-            <a href="/about/<%= admin._id %> "><div class="detail-button">Özgeçmiş</div></a>
-            <a href=""><div class="detail-button">Yazıları</div></a>
+            <a href="/about/<%= admin._id %>"
+              ><div class="detail-button">Yazıları</div></a
+            >
           </div>
         </div>
         <% }) %>

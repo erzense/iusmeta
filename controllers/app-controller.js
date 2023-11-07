@@ -99,8 +99,8 @@ const filterContents = async (req, res) => {
       queryObject = { categories: filter.categories };
     }
 
-    const result = Content.find(queryObject);
-    const contents = await result;
+    const contents = await Content.find(queryObject).sort("-createdAt");
+
     res.status(201).render("contents", { contents });
   } catch (error) {
     console.log(error);

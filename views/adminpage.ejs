@@ -20,7 +20,7 @@
         gap: 20px;
       }
 
-      img {
+      .container img {
         width: 160px;
         height: 160px;
         border-radius: 50%;
@@ -29,6 +29,22 @@
       .adminPosts {
         padding: 0px 100px;
         width: 100%;
+        display: flex;
+        gap: 40px;
+        margin-bottom: 100px;
+      }
+
+      .articleShowcase {
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: start;
+        gap: 10px;
+      }
+
+      .articleShowcase img {
+        width: 240px;
+        height: 160px;
       }
 
       @media only screen and (max-width: 600px) {
@@ -47,17 +63,22 @@
         </div>
         <p><%= admin.cv %></p>
       </div>
+    </div>
 
-      <div class="adminPosts">
-        <% contents.forEach(content => { %>
-        <p>
-          <a href="/contents/<%= content._id %>" target="_blank"
-            ><%= content.title %></a
-          >
-        </p>
-        <br />
-        <% }) %>
+    <label style="font-size: 36px; padding: 0px 100px" for=""
+      >Yazarın İçerikleri</label
+    >
+    <div class="adminPosts">
+      <% contents.forEach(content => { %>
+      <div class="articleShowcase">
+        <a href="/contents/<%= content._id %>">
+          <img src="<%= content.image %>" alt=""
+        /></a>
+        <a href="/contents/<%= content._id %>">
+          <h3><%= content.title %></h3></a
+        >
       </div>
+      <% }) %>
     </div>
   </body>
 </html>
