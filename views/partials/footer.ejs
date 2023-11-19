@@ -1,11 +1,37 @@
 <footer id="footer">
-    <div class="social-media">
-        <li><a href="https://www.linkedin.com/company/iusmeta/" target="_blank" class="bi bi-linkedin"></a></li>
-        <li><a href="https://www.instagram.com/iusmeta/" target="_blank" class="bi bi-instagram"></a></li>
-       
-        <li><a href="https://www.facebook.com/profile.php?id=100087545583324&mibextid=LQQJ4d" target="_blank" class="bi bi-facebook"></a></li>
+  <h1 class="asd">BİZİM HAKKIMIZDA GÖRÜŞLERİNİZİ BİLDİRİN</h1>
+
+  <form action="/" method="POST">
+    <input type="name" name="name" id="name_input" placeholder="Adınız" />
+    <textarea
+      name="text"
+      id="text_input"
+      placeholder="Görüşleriniz..."
+    ></textarea>
+    <div style="display: flex; gap: 10px" class="kvkk-check">
+      <input type="checkbox" name="kvkk_check" id="checkbox" required />
+      <span>KVKK Aydınlatma Metnini Onaylıyorum</span>
     </div>
-    <div class="regulations">
-        <p>&copy; Tüm hakları iusmeta.com'a aittir.</p>
-    </div>
+    <button type="submit">Gönder</button>
+  </form>
+
+  <div class="footer-contact">
+    <a href=""><i class="bi bi-linkedin"></i></a>
+    <a href="">
+      <svg
+        class="x-logo"
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        fill="currentColor"
+        class="bi bi-twitter-x"
+        viewBox="0 0 16 16"
+      >
+        <path
+          d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865l8.875 11.633Z"
+        />
+      </svg>
+    </a>
+    <a href=""><i class="bi bi-instagram"></i></a>
+  </div>
 </footer>

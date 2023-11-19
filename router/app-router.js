@@ -15,9 +15,11 @@ const {
   createAdmin,
   getAdminDashboard,
   deletePostFromAdminDashboard,
+  postIndex,
 } = require("../controllers/app-controller");
 
 router.route("/").get(getIndex);
+router.route("/").post(postIndex);
 
 router.route("/about").get(getAbout);
 router.route("/about/:id").get(getAdmin);

@@ -1,189 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta name="google-adsense-account" content="ca-pub-1640099499734645">
+    <meta name="google-adsense-account" content="ca-pub-1640099499734645" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ius Meta</title>
-    <script
-      async
-      custom-element="amp-ad"
-      src="https://cdn.ampproject.org/v0/amp-ad-0.1.js"
-    ></script>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1640099499734645"
-     crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="css/main.css" />
-    <link rel="stylesheet" href="css/components/timeline.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.6.0/css/glide.core.min.css"
+    />
+
     <link rel="stylesheet" href="css/components/navbar.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/components/footer.css" />
   </head>
   <body>
     <%- include('partials/navbar') %>
-    
-    <div class="container">
-      <div class="landing-text">
-        <h1>BİLİŞİM VE HUKUKUN ORTAK PAYDASI</h1>
-        <p>Ius Meta,</p>
-        <p>Bilişim ve Hukuk Sektörlerindeki,</p>
-        <p>Tüm Argümanların,</p>
-        <p>Bir Araya Getirildiği Bir Platformdur.</p>
-      </div>
-
-      <div class="card-container">
-        <div class="card card1">
-          <div class="card-body">
-            <img class="card-image" src="../images/cardImage.jpg" alt="" />
-            <div class="card-body-title">
-              <h2 class="">Bilişim Dünyasında Farkındalık</h2>
-            </div>
-            <div class="card-body-text">
-              <p>
-                Dünyada ve ülkemizde her geçen gün etkisini arttıran bilişim
-                dünyasının tüm gelişmelerini size aktarmayı hedefliyoruz.
-              </p>
-            </div>
-            <button class="read-more">
-              <a href="/contents">Daha Fazla</a>
-            </button>
-          </div>
-        </div>
-        <div class="card card1">
-          <div class="card-body">
-            <img class="card-image" src="../images/cardImage2.jpg" alt="" />
-            <div class="card-body-title">
-              <h2 class="">Bilgi Kaynaklarına Kolay Erişim</h2>
-            </div>
-            <div class="card-body-text">
-              <p>
-                iusmeta.com olarak bilişim alanında yayınlanmış en önemli
-                bilgileri derleyip filtremizden geçirerek size bir rehber olarak
-                sunmayı hedefliyoruz.
-              </p>
-            </div>
-            <button class="read-more">
-              <a href="/contents">Daha Fazla</a>
-            </button>
-          </div>
-        </div>
-        <div class="card card1">
-          <div class="card-body">
-            <img class="card-image" src="../images/cardImage3.jpg" alt="" />
-            <div class="card-body-title">
-              <h2 class="">Teknolojiye Hukuki Dokunuş Yapıyoruz</h2>
-            </div>
-            <div class="card-body-text">
-              <p>
-                Teknolojik gelişmeleri hukuki zeminde temellendirerek
-                anlamlandırıp hem mevzuat hem de içtihat perspektifiyle sizlere
-                ulaştırmayı hedefliyoruz.
-              </p>
-            </div>
-            <button class="read-more">
-              <a href="/contents">Daha Fazla</a>
-            </button>
-          </div>
+    <br />
+    <br /><br /><br />
+    <section class="top-slider">
+      <div class="glide">
+        <div class="glide__track" data-glide-el="track">
+          <ul class="glide__slides">
+            <a href="/contents/<%=lastPhoto._id  %>">
+              <li class="glide__slide">
+                <img src="<%= lastPhoto.image %>" alt="" /></li
+            ></a>
+            <a href="/contents/<%=lastPhoto2._id  %>">
+              <li class="glide__slide">
+                <img src="<%= lastPhoto2.image %>" alt="" /></li
+            ></a>
+            <a href="/contents/<%=lastPhoto3._id  %>">
+              <li class="glide__slide">
+                <img src="<%= lastPhoto3.image %>" alt="" /></li
+            ></a>
+          </ul>
         </div>
       </div>
-      <br /><br /><br /><br />
+    </section>
 
-      <script
-        async
-        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1640099499734645"
-        crossorigin="anonymous"
-      ></script>
-      <!-- iusmeta reklam -->
-      <ins
-        class="adsbygoogle"
-        style="display: block"
-        data-ad-client="ca-pub-1640099499734645"
-        data-ad-slot="9708631416"
-        data-ad-format="auto"
-        data-full-width-responsive="true"
-      ></ins>
-      <script>
-        (adsbygoogle = window.adsbygoogle || []).push({});
-      </script>
-      <amp-ad
-        width="100vw"
-        height="320"
-        type="adsense"
-        data-ad-client="ca-pub-1640099499734645"
-        data-ad-slot="9708631416"
-        data-auto-format="rspv"
-        data-full-width=""
-      >
-        <div overflow=""></div>
-      </amp-ad>
+    <section class="landing-text">
+      <img src="/images/black_logo.png" alt="" class="logo" />
+      <h1 class="top-text">BİLİŞİM ve Hukukun Ortak Paydası</h1>
+      <h3>"Ius Meta</h3>
+      <h3>Bilişim ve Hukuk Alanlarındaki</h3>
+      <h3>Tüm Argümanların Bir Araya</h3>
+      <h3>Getirildiği Platformdur"</h3>
+    </section>
 
-      <section class="timeline-section">
-        <h2
-          style="
-            text-align: center;
-            color: white;
-            font-size: 32px;
-            margin-bottom: 20px;
-          "
-        >
-          ROADMAP 2023
-        </h2>
-        <div class="timeline-items">
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-date">1. Çeyrek</div>
-            <div class="timeline-content">
-              <h3>Birinci Çeyrek</h3>
-              <p>
-                Organizasyonumuzun misyonu ve vizyonu belirlenip nasıl bir yol
-                izleneceği kararlaştırıldı.
-              </p>
-            </div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-date">2. Çeyrek</div>
-            <div class="timeline-content">
-              <h3>İkinci Çeyrek</h3>
-              <p>
-                Organizasyonumuza ait sosyal medya hesaplarından paylaşımlar
-                yapılıp kitle büyütmek hedeflendi.
-              </p>
-            </div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-date">3. Çeyrek</div>
-            <div class="timeline-content">
-              <h3>Üçüncü Çeyrek</h3>
-              <p>
-                Organizasyonumuzun websitesini aktif hale getirip hedeflediğimiz
-                alanlardaki güncel gelişmeleri içeriğe dönüştürerek sunmaya
-                başlayacağız.
-              </p>
-            </div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-date">4. Çeyrek</div>
-            <div class="timeline-content">
-              <h3>Dördüncü Çeyrek</h3>
-              <p>
-                Bilişim ve Hukuku ortak paydada birleştirerek sizleri geleceğe
-                bir adım daha yakınlaştırıyoruz.
-              </p>
-            </div>
-          </div>
+    <div class="datas-landing" id="datas-landing">
+      <div class="counter">
+        <div style="display: flex">
+          <p id="sayac1">0</p>
+          <span>+</span>
         </div>
-      </section>
-
-      <!--       
-      <form action="/form_submit" method="POST">
-        <label for="name">Adınız:</label>
-        <input type="text" id="name" name="name"><br><br>
-        <label for="name">Adınız:</label>
-        <input type="text" id="surname" name="surname"><br><br>
-        <input type="submit" value="Gönder">
-      </form> -->
-
-      <%- include('partials/footer') %>
+        <span>Yazar</span>
+      </div>
+      <div class="counter">
+        <div style="display: flex">
+          <p id="sayac2">0</p>
+          <span>+</span>
+        </div>
+        <span>İçerik</span>
+      </div>
     </div>
+
+    <label class="ius-meta-blog-label">IUS META BLOG</label>
+
+    <section class="ius-meta-blog-section">
+      <div class="glide carousel-glide">
+        <div class="glide__track" data-glide-el="track">
+          <ul class="glide__slides">
+            <% contents.forEach(content => { %>
+            <a href="/contents/<%= content._id %>"
+              ><li class="glide__slide">
+                <div class="blog-card">
+                  <div class="blog-card-image">
+                    <img src="<%= content.image %>" alt="" />
+                  </div>
+                  <div class="blog-card-content">
+                    <div class="blog-card-category">
+                      <p><%= content.categories %></p>
+                    </div>
+                    <span class="blog-card-title"><%= content.title %></span>
+                    <p class="blog-card-text"><%- content.summarize %></p>
+                  </div>
+
+                  <div class="blog-card-author"><%= content.author %></div>
+                </div>
+              </li></a
+            >
+            <% }) %>
+          </ul>
+        </div>
+      </div>
+
+      <div class="glide carousel-mobile-glide">
+        <div class="glide__track" data-glide-el="track">
+          <ul class="glide__slides">
+            <% contents.forEach(content => { %>
+            <a href="/contents/<%= content._id %>"
+              ><li class="glide__slide">
+                <div class="blog-card">
+                  <div class="blog-card-image">
+                    <img src="<%= content.image %>" alt="" />
+                  </div>
+                  <div class="blog-card-content">
+                    <div class="blog-card-category">
+                      <p><%= content.categories %></p>
+                    </div>
+                    <span class="blog-card-title"><%= content.title %></span>
+                    <p class="blog-card-text"><%- content.summarize %></p>
+                  </div>
+
+                  <div class="blog-card-author"><%= content.author %></div>
+                </div>
+              </li></a
+            >
+            <% }) %>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <%- include('partials/footer') %>
+    <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
+    <script src="/js/glide.js"></script>
+    <script src="/js/page_dynamic.js"></script>
   </body>
 </html>

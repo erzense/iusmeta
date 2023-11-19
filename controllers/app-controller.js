@@ -1,4 +1,5 @@
 require("dotenv").config();
+const nodemailer = require("nodemailer");
 const User = require("../models/users");
 const Content = require("../models/content");
 const Admins = require("../models/admins");
@@ -42,9 +43,39 @@ const postlogin = async (req, res) => {
 
 const getIndex = async (req, res) => {
   try {
-    //res.status(200).json({ users, nbHits:Product.length });
-    res.render("index");
+    const contents = await Content.find({}).sort("-createdAt");
+    const lastPhoto = contents[0];
+    const lastPhoto2 = contents[1];
+    const lastPhoto3 = contents[2];
+    //console.log(lastPhoto.title, lastPhoto2.title, lastPhoto3.title);
+    res
+      .render("index", { contents, lastPhoto, lastPhoto2, lastPhoto3 })
+      .setHeader("Content-Type", "text/html; charset=utf-8");
   } catch (error) {}
+};
+
+const postIndex = async (req, res) => {
+  const { name, text, kvkk_chekcbox } = req.body;
+  let transporter = nodemailer.createTransport({
+    service: "gmail",
+    auth: {
+      user: process.env.NODE_USER,
+      pass: process.env.NODE_MAILER,
+    },
+  });
+
+  let mailOptions = {
+    from: process.env.NODE_USER,
+    to: "erayersan21@gmail.com",
+    subject: "nodemailertest",
+    html: `${name} <br /> ${text}`,
+  };
+
+  transporter.sendMail(mailOptions, (err, data) => {
+    if (err) console.log(err);
+    else console.log("mail gönderildi");
+  });
+  res.redirect("/");
 };
 
 const getAbout = async (req, res) => {
@@ -176,4 +207,5 @@ module.exports = {
   postlogin,
   getAdminDashboard,
   deletePostFromAdminDashboard,
+  postIndex,
 };

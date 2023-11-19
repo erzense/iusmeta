@@ -1,0 +1,71 @@
+@import url("https://fonts.googleapis.com/css2?family=Libre+Franklin&family=Oswald&family=Roboto+Condensed&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box !important;
+  font-family: "Roboto Condensed", sans-serif !important;
+  text-decoration: none;
+}
+
+a {
+  color: black;
+}
+
+body {
+  background-color: #f8f9fa;
+  position: relative;
+  min-height: 100vh;
+}
+
+footer {
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+footer form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+footer form #name_input {
+  width: 200px;
+  height: 30px;
+  color: black;
+}
+footer form #text_input {
+  width: 200px;
+  height: 200px;
+  color: black;
+}
+
+footer form button {
+  width: 200px;
+  height: 30px;
+  color: black;
+}
+
+.footer-contact {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+.footer-contact i {
+  color: black;
+}
+
+.footer-contact i {
+  font-size: 25px;
+}
+
+.footer-contact .x-logo {
+  color: black;
+}

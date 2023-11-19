@@ -6,6 +6,13 @@ const ContentSchema = new mongoose.Schema({
   content: String,
   author: String,
   categories: String,
+  summarize: {
+    type: String,
+    virtual: true,
+    get: function () {
+      return this.content.substr(0, 150);
+    },
+  },
   createdAt: {
     type: Date,
     default: Date.now(),
