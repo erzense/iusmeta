@@ -6,9 +6,38 @@
   font-family: "Roboto Condensed", sans-serif;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5 {
+  text-align: center;
+}
+
 p {
   font-size: 1.25em;
 }
 
+.tanitim_yazisi {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  gap: 30px;
+}
+
+.tanitim_yazisi h3 {
+  padding: 10px;
+  text-align: center;
+}
+
 @media only screen and (max-width: 962px) {
+  .asd {
+    width: 70%;
+    text-align: center;
+  }
+
+  .adminler {
+    justify-content: center;
+  }
 }

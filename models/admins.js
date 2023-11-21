@@ -5,8 +5,8 @@ const AdminSchema = new mongoose.Schema({
   position: String,
   linkedin: String,
   image: String,
-  cv:String
+  cv: String,
+  level: Number,
 });
-
 
 module.exports = mongoose.model("Admins", AdminSchema);

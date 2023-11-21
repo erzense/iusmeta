@@ -79,7 +79,7 @@ const postIndex = async (req, res) => {
 };
 
 const getAbout = async (req, res) => {
-  const admins = await Admins.find({});
+  const admins = await Admins.find({}).sort("-level");
   try {
     res.render("about", { admins });
   } catch (error) {

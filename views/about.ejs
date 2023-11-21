@@ -6,10 +6,66 @@
     <title>Hakkımızda</title>
     <link rel="stylesheet" href="../css/components/navbar.css" />
     <link rel="stylesheet" href="../css/components/footer.css" />
-    <link rel="stylesheet" href="../css/main.css" />
     <link rel="stylesheet" href="../css/about.css" />
   </head>
   <body>
-    <%- include('partials/navbar') %> <%- include('partials/footer') %>
+    <%- include('partials/navbar') %>
+    <br /><br /><br /><br /><br />
+
+    <section class="tanitim_yazisi">
+      <img width="200px" height="200px" src="/images/black_logo.png" alt="" />
+      <h3 class="about_intro">
+        <span style="font-weight: bold; font-style: italic">Ius Meta </span
+        >oluşumu 2022 yılının kasım ayında Eray Ersan ve İsmet Akbulut
+        tarafından kurulmuştur. <br />
+        Ius Meta olarak bilişim ve bilişim hukuku alanlarındaki tüm gelişmeleri
+        en anlaşılır şekilde takipçilerimize ulaştırmayı hedefliyoruz. <br />
+      </h3>
+
+      <h2 class="ekibimiz">EKİBİMİZ</h2>
+
+      <div class="ekip_tanitim">
+        <ul
+          style="display: flex; flex-wrap: wrap; align-items: center; gap: 25px"
+          class="adminler"
+        >
+          <% admins.forEach(admin => { %>
+          <a href="/about/<%= admin._id %>"
+            ><li style="list-style: none" class="admin">
+              <div
+                style="
+                  display: flex;
+                  flex-direction: column;
+                  gap: 10px;
+                  justify-content: center;
+                  align-items: center;
+                  color: black;
+                "
+                class="admin-card"
+              >
+                <img
+                  style="
+                    width: 100px;
+                    height: 100px;
+                    background-size: cover;
+                    border-radius: 50%;
+                  "
+                  src="/images/<%= admin.image %>"
+                  alt=""
+                />
+                <h3 style="color: black; padding: 0px; margin: 0px">
+                  <%= admin.name %>
+                </h3>
+                <h3 style="color: black; padding: 0px; margin: 0px">
+                  <%= admin.position %>
+                </h3>
+                <button><i class="bi bi-right-arrow"></i></button>
+              </div></li
+          ></a>
+          <% }) %>
+        </ul>
+      </div>
+    </section>
+    <%- include('partials/footer') %>
   </body>
 </html>
