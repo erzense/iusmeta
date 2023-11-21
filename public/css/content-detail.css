@@ -1,82 +1,101 @@
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css");
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: 'Roboto Condensed', sans-serif;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Roboto Condensed", sans-serif;
 }
 
-body{
-    background-color: black;
-    color: white;
+body {
+  background-color: #f8f9fa;
+  color: black;
 }
 
-p{
-    font-size: 1.25em;
+p {
+  font-size: 1.25em;
 }
 
-.all-content-page{
-    width: 100%;
-    display: flex;
-    gap: 50px;
+.all-content-page {
+  width: 100%;
+  padding: 0px 150px;
 }
 
-.content-field{
-    width: 80%;
-    gap: 10px;
-    display: flex;
-    flex-direction: column;
+.content-field {
+  margin-top: 50px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.content-field img{
-    width: 550px;
-    height: 300px;
+.content-field .makale_basligi {
+  float: left;
+  width: 100%;
+  font-size: 2rem;
+  display: flex;
+  justify-content: start;
 }
 
-.suggested-content{
-    width: 20%;
-    height: 400px;
+.content-field .yazar_ismi {
+  float: left;
+  width: 100%;
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: start;
+  font-weight: bold;
 }
 
-.suggested-content-card {
-    width: 100%;
-    height: 220px;
-    display: flex;
-    flex-direction: column;
-}
-.suggested-content-card .suggested-content-card-image{
-    width: 100%;
-    height: 50%;
+.content_image {
+  width: 100%;
+  height: 400px;
+  margin-bottom: 50px;
 }
 
-.suggested-content-card .suggested-content-card-image img{
-    width: 100%;
-    height: 100%;
-}
-.suggested-content-card .suggested-content-card-title{
-    width: 100%;
-    height: 50%;
-    padding-top: 10px;
+.ilginizi_cekebilir {
+  width: 100%;
+  text-align: left;
+  margin-top: 50px;
 }
 
-.content-text{
-    font-size: 15px;
+.ilgili_icerikler {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.ilgili_icerikler .ilgili_icerik {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 400px;
+  height: 300px;
+  gap: 10px;
+}
+
+.ilgili_icerik img {
+  width: 100%;
+  height: 75%;
+}
+
+.ilgili_icerik .ilgili_icerik_title {
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.related_contents {
+  padding: 0px 150px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: red;
 }
 
 @media only screen and (max-width: 900px) {
-    .all-content-page{
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        gap: 50px;
-        margin-bottom: 50px;
-    }
-    .content-field img{
-        width: 275px;
-        height: 150px;
-    }
-
-    .content-field{
-        width: 100%;
-    }
+  .all-content-page {
+    padding: 0px 20px;
   }
+}

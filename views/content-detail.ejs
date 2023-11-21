@@ -1,34 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%- content.title %></title>
     <link rel="stylesheet" href="../css/components/navbar.css" />
+    <link rel="stylesheet" href="../css/components/footer.css" />
     <link rel="stylesheet" href="../css/main.css" />
     <link rel="stylesheet" href="../css/content-detail.css" />
-    <link rel="stylesheet" href="../css/content.css" />
-</head>
-<body>
+  </head>
+  <body>
     <%- include('partials/navbar') %>
-    <div class="container">
-        <div class="all-content-page">
+    <div class="all-content-page">
+      <div class="content-field">
+        <h3 class="makale_basligi"><%- content.title %></h3>
+        <p class="yazar_ismi"><%= content.author %></p>
+        <img class="content_image" src="<%= content.image %>" alt="" />
 
-        
-        <div class="content-field">
-            <h3><%- content.title %></h3>
-            <p><%= content.author %></p>
-            <div class="content-image">
-                <img src="<%= content.image %>" alt="">
-            </div>
-            
-            <div class="content-text">
-                <p><%- content.content  %></p>
-            </div>
+        <div class="content-text">
+          <p><%- content.content %></p>
         </div>
-       
+      </div>
+      <hr style="margin-top: 10px" />
+
+      <h3 class="ilginizi_cekebilir">İlginiz Çekebilir</h3>
+
+      <div class="ilgili_icerikler">
+        <% related.forEach(r => { %>
+        <a href="/contents/<%= r._id %>">
+          <div class="ilgili_icerik">
+            <img src="<%= r.image %>" alt="" />
+            <h2 class="ilgili_icerik_title"><%= r.title %></h2>
+          </div>
+        </a>
+        <% }) %>
+      </div>
     </div>
-    </div>
+
     <%- include('partials/footer') %>
-</body>
+  </body>
 </html>

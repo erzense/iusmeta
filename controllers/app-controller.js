@@ -114,9 +114,11 @@ const getContents = async (req, res) => {
 
 const getContentDetail = async (req, res) => {
   const contents = await Content.find({});
+  const related = await Content.find({}).sort("-createdAt").limit(5);
+  console.log(related);
   try {
     const content = contents.find((c) => c._id == req.params.id);
-    res.status(200).render("content-detail", { content });
+    res.status(200).render("content-detail", { content, related });
   } catch (error) {
     console.log(error);
   }

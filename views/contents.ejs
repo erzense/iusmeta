@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="stylesheet" href="css/components/navbar.css" />
+    <link rel="stylesheet" href="css/components/footer.css" />
     <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="css/about.css" />
     <link rel="stylesheet" href="css/content.css" />
@@ -12,44 +13,53 @@
   </head>
   <body>
     <%- include('partials/navbar') %>
-    <div class="container">
-      <div class="content-filters">
-        <form action="/contents" method="POST">
-          <label for="kategoriler">Türler</label>
-          <br />
-          <select name="categories" id="categories">
-            <option name="hepsi" value="hepsi">Hepsi</option>
-            <option name="makale" value="Makale">Makale</option>
-            <option name="roportaj" value="Röportaj">Röportaj</option>
-            <option name="podcast" value="Podcast">Podcast</option>
-            <option name="haber" value="Haber">Haberler</option>
-          </select>
-          <button type="submit">Filtrele</button>
-        </form>
-      </div>
-      <div class="content-area">
-        <% contents.forEach(content => { %>
-        <div class="content-card">
-          <div class="image">
-            <img src="<%= content.image %>" alt="içerik fotoğrafı" />
-          </div>        
-            <div class="content-header">
-              <p class="content-title"><%= content.title %></p>
-            </div>
-          
-          <div class="content-author">
-            <p class="content-author-p"><%= content.author %></p>
-          </div>
-          <div class="content-categories">
-            <p class="content-categories-p"><%= content.categories %></p>
-          </div>
-          <div class="content-button">
-            <a href="/contents/<%= content._id %>" class="content-detail-button"><p>Yazıya Git</p></a>
-          </div>
-        </div>
-        <% }) %>
-      </div>
-      <%- include('partials/footer') %>
+
+    <div class="content-filters">
+      <form action="/contents" method="POST">
+        <label for="kategoriler">Türler</label>
+        <br />
+        <select name="categories" id="categories">
+          <option name="hepsi" value="hepsi">Hepsi</option>
+          <option name="makale" value="Makale">Makale</option>
+          <option name="roportaj" value="Röportaj">Röportaj</option>
+          <option name="podcast" value="Podcast">Podcast</option>
+          <option name="haber" value="Haber">Haberler</option>
+        </select>
+        <button type="submit">Filtrele</button>
+      </form>
     </div>
+    <div
+      style="
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 20px;
+        padding: 50px;
+      "
+      class="content-area"
+    >
+      <% contents.forEach(content => { %>
+      <a href="/contents/<%= content._id %>"
+        ><li class="glide__slide">
+          <div class="blog-card">
+            <div class="blog-card-image">
+              <img src="<%= content.image %>" alt="" />
+            </div>
+            <div class="blog-card-content">
+              <div class="blog-card-category">
+                <p><%= content.categories %></p>
+              </div>
+              <span class="blog-card-title"><%= content.title %></span>
+              <p class="blog-card-text"><%- content.summarize %></p>
+            </div>
+
+            <div class="blog-card-author"><%= content.author %></div>
+          </div>
+        </li></a
+      >
+      <% }) %>
+    </div>
+    <%- include('partials/footer') %>
   </body>
 </html>
