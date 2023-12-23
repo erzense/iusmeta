@@ -34,8 +34,14 @@
         <li style="background-color: rgb(17, 167, 187); margin-bottom: 5px">
           <a target="_blank" href="/contents/<%= content._id %>"
             ><%= content.title %></a
-          ><a href="/dashboard/delete/<%= content._id %>"><i style="margin-left: 10px; color: red;" class="bi bi-trash"></i></a
-          ><a href=""><i style="margin-left: 10px; color: black;" class="bi bi-pencil"></i></a>
+          ><a href="/dashboard/delete/<%= content._id %>"
+            ><i
+              style="margin-left: 10px; color: red"
+              class="bi bi-trash"
+            ></i></a
+          ><a href="/dashboard/update/<%= content._id %>"
+            ><i style="margin-left: 10px; color: black" class="bi bi-pencil"></i
+          ></a>
         </li>
         <% }) %>
       </ul>

@@ -73,7 +73,6 @@ const postIndex = async (req, res) => {
 
   transporter.sendMail(mailOptions, (err, data) => {
     if (err) console.log(err);
-    else console.log("mail gönderildi");
   });
   res.redirect("/");
 };
@@ -93,9 +92,7 @@ const getAdmin = async (req, res) => {
   try {
     const admin = admins.find((a) => a._id == req.params.id);
     const contents = await Content.find({ author: admin.name });
-    contents.forEach((content) => {
-      console.log(content.title);
-    });
+    contents.forEach((content) => {});
     res.render("adminpage", { admin, contents });
   } catch (error) {}
 };
@@ -115,7 +112,7 @@ const getContents = async (req, res) => {
 const getContentDetail = async (req, res) => {
   const contents = await Content.find({});
   const related = await Content.find({}).sort("-createdAt").limit(5);
-  console.log(related);
+
   try {
     const content = contents.find((c) => c._id == req.params.id);
     res.status(200).render("content-detail", { content, related });
@@ -168,7 +165,6 @@ const postProtectedPage = async (req, res) => {
       categories: req.body.kategori,
     });
 
-    console.log(content);
     res.status(201).redirect("/");
   } catch (error) {
     console.log(error);
@@ -183,7 +179,7 @@ const getAdminDashboard = async (req, res) => {
     let queryObject = { author: filter };
     const result = Content.find(queryObject);
     const contents = await result;
-    console.log(contents);
+
     res.status(201).render("dashboard", { contents, admin });
   } catch (error) {
     console.log(error);
@@ -192,6 +188,32 @@ const getAdminDashboard = async (req, res) => {
 
 const deletePostFromAdminDashboard = async (req, res) => {
   await Content.deleteOne({ _id: req.params.id });
+  res.redirect("/dashboard");
+};
+
+const updatePostFromAdminDashboard = async (req, res) => {
+  const { id } = req.params.id;
+  const admin = req.session.admin;
+  const contents = await Content.find({});
+  const content = contents.find((c) => c._id == req.params.id);
+  res.render("update-post-page", { admin, content });
+};
+
+const updatePost = async (req, res) => {
+  const { id: contentID } = req.params;
+  const content = await Content.findByIdAndUpdate(
+    { _id: contentID },
+    req.body,
+    {
+      new: true,
+      runValidators: true,
+    }
+  );
+  if (!content) {
+    return res.status(404).json({ msg: `undefined content ${contentID}` });
+  }
+  console.log(req.body);
+  console.log("hello world");
   res.redirect("/dashboard");
 };
 
@@ -210,4 +232,6 @@ module.exports = {
   getAdminDashboard,
   deletePostFromAdminDashboard,
   postIndex,
+  updatePostFromAdminDashboard,
+  updatePost,
 };

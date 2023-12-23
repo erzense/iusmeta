@@ -16,6 +16,8 @@ const {
   getAdminDashboard,
   deletePostFromAdminDashboard,
   postIndex,
+  updatePostFromAdminDashboard,
+  updatePost,
 } = require("../controllers/app-controller");
 
 router.route("/").get(getIndex);
@@ -33,6 +35,8 @@ router.route("/dashboard/add-post").post(isAuth, postProtectedPage);
 
 router.route("/dashboard").get(isAuth, getAdminDashboard);
 router.route("/dashboard/delete/:id").get(isAuth, deletePostFromAdminDashboard);
+router.route("/dashboard/update/:id").get(isAuth, updatePostFromAdminDashboard);
+router.route("/dashboard/update/:id").patch(isAuth, updatePost);
 
 router.route("/contents").get(getContents).post(filterContents);
 router.route("/contents/:id").get(getContentDetail);

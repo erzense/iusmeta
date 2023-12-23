@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/components/navbar.css" />
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="../css/about.css" />
+    <link rel="stylesheet" href="../css/add-post.css" />
+    <script src="https://cdn.ckeditor.com/4.9.1/standard/ckeditor.js"></script>
+    <title>Güncelle</title>
+  </head>
+  <body>
+    <nav>
+      <input id="nav-toggle" type="checkbox" />
+      <div class="logo">
+        <a href="/"><img src="../images/logo.png" alt="" /></a>
+      </div>
+      <ul class="links">
+        <li>Admin <%= admin.name %></li>
+        <li><a href="/dashboard">Yazılarım</a></li>
+        <li><a href="/protected">Post Ekle</a></li>
+      </ul>
+      <label for="nav-toggle" class="icon-burger">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+      </label>
+    </nav>
+    <br /><br /><br /><br /><br />
+
+    <div class="add-post-container">
+      <form id="myForm" action="/dashboard/update/<%= content._id %>">
+        <label for="author">Yazar</label>
+        <input
+          type="text"
+          name="author"
+          id="author"
+          value="<%= admin.name %>"
+        />
+        <label for="post-title">Başlık</label>
+        <input
+          type="text"
+          name="post_title"
+          id="title"
+          value="<%= content.title %>"
+        />
+        <label for="post_image">Fotoğraf Dosya Dizini</label>
+        <input
+          type="text"
+          name="post_image"
+          id="image"
+          value="<%= content.image %>"
+        />
+        <label for="post_text">Metin</label>
+        <select name="kategori" id="kategori" value="<%= content.categories %>">
+          <option value="Röportaj">Röportaj</option>
+          <option value="Makale">Makale</option>
+          <option value="Podcast">Podcast</option>
+          <option value="Haber">Haber</option>
+        </select>
+        <textarea id="editor1" name="editor1" rows="10" cols="50">
+        <%= content.content %> </textarea
+        >
+        <button onclick="submitPatchRequest()" type="submit">Güncelle</button>
+      </form>
+    </div>
+
+    <script>
+      CKEDITOR.replace("editor1");
+    </script>
+
+    <script>
+      function submitPatchRequest() {
+        const author = document.getElementById("author").value;
+        const title = document.getElementById("title").value;
+        const image = document.getElementById("image").value;
+        const content = CKEDITOR.instances.editor1.getData();
+
+        const data = {
+          author,
+          title,
+          content,
+          image,
+          // Diğer form verileri
+        };
+
+        fetch("/dashboard/update/<%= content._id %>", {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        })
+          .then((response) => {})
+          .catch((error) => {
+            // Hata işlemleri
+          });
+      }
+    </script>
+  </body>
+</html>
