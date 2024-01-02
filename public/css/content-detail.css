@@ -29,6 +29,9 @@ p {
   align-items: center;
 }
 
+.content-text li {
+  font-size: 1.25em;
+}
 .content-field .makale_basligi {
   float: left;
   width: 100%;
