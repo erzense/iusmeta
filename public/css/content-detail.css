@@ -29,6 +29,14 @@ p {
   align-items: center;
 }
 
+.content-text h1,
+h2,
+h3,
+h4,
+h5 {
+  text-align: left !important;
+}
+
 .content-text li {
   font-size: 1.25em;
 }
